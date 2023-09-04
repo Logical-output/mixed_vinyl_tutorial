@@ -3,15 +3,13 @@
 {% block title %} Create a new record | {{ parent() }} {% endblock title %}
 
 {% block body %}
+
     <h1>{{ title }}</h1>
 
-    <ul>
-
-        {% for track in tracks %}
-            
+    <ul>        
+        {% for track in tracks %}            
             <li>{{ track.song }} - {{ track.artist }}</li>
-
-        {% endfor %}
-        
+        {% endfor %}        
     </ul>
+    
 {% endblock body %}
