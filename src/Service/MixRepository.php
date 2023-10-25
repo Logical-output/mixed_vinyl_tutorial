@@ -25,7 +25,7 @@ class MixRepository
     {
         // $output = new BufferedOutput();
         // $this->twigDebugCommand->run(new ArrayInput([]), $output);
-        // dd($output);       
+        // dd($output);
 
         return $this->cache->get("mixes_date", function(CacheItemInterface $cacheItem) {
             $cacheItem->expiresAfter($this->isDebug ? 5 : 60);
