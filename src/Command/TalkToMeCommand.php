@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'app:talk-to-me',
-    description: 'Add a short description for your command',
+    description: 'A self-aware command that can do... only one thing',
 )]
 class TalkToMeCommand extends Command
 {
@@ -24,25 +24,23 @@ class TalkToMeCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
+            ->addArgument('name', InputArgument::OPTIONAL, 'Your name')
+            ->addOption('yell', null, InputOption::VALUE_NONE, 'Shall I yell?')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $arg1 = $input->getArgument('arg1');
+        $name = $input->getArgument('name') ?: 'Whoever you are';
+        $shouldYell = $input->getOption('yell');
 
-        if ($arg1) {
-            $io->note(sprintf('You passed an argument: %s', $arg1));
+        $message = sprintf('Hey %s!', $name);
+        if ($shouldYell) {
+            $message = strtoupper($message);
         }
 
-        if ($input->getOption('option1')) {
-            // ...
-        }
-
-        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+        $io->success($message);
 
         return Command::SUCCESS;
     }
