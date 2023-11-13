@@ -9,11 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: VinylMixRepository::class)]
 class VinylMix
 {
-    public function __construct()
-    {
-        $this->createdAt = new \DateTimeImmutable();
-    }
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -36,6 +31,11 @@ class VinylMix
 
     #[ORM\Column]
     private int $votes = 0;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
