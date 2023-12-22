@@ -33,13 +33,15 @@ class VinylController extends AbstractController
             'tracks' => $tracks,
         ]);
 
-        // the true way to render a twig template using the twig service
-        // $html = $twig->render('vinyl/homepage.html.twig', [
-        //     'title' => 'PB & Jams',
-        //     'tracks' => $tracks,
-        // ]);
+        /*
+        the true way to render a twig template using the twig service
+        $html = $twig->render('vinyl/homepage.html.twig', [
+            'title' => 'PB & Jams',
+            'tracks' => $tracks,
+        ]);
 
-        // return new Response($html);
+        return new Response($html);
+        */
     }
 
     #[Route('/browse/{slug}', name: 'app_browse', methods: ['GET'])]

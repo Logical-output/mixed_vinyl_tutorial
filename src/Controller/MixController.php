@@ -32,7 +32,7 @@ class MixController extends AbstractController
         ));
     }
 
-    #[Route('/new/{id}', name: 'app_mix_show')]
+    #[Route('/mix/{id}', name: 'app_mix_show')]
     public function show(string $id, VinylMixRepository $mixRepository): Response
     {
         $mix = $mixRepository->find($id);
