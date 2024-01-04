@@ -9,5 +9,5 @@ import './bootstrap.js';
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-// any JavaScript you import will output into a single javascript file (main.js in this case)
-import './javascript/main.js';
+// any JavaScript you import will output into a single javascript file (app.js in this case)
+import './javascript/app.js';
